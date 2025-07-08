@@ -1,0 +1,181 @@
+
+  [
+    {
+      "title": "[NEW] Spring Boot 3, Spring 6 & Hibernate for Beginners",
+      "description": "Spring Boot 3: Learn Spring 6, Spring Core, Spring REST, Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate, MySQL",
+      "category": "Development",
+      "subcategories": ["Programming Languages", "Java", "Spring Framework"],
+      "url": "https://www.udemy.com/course/spring-hibernate-tutorial/"
+    },
+    {
+      "title": "NestJS Masterclass - NodeJS Framework Backend Development",
+      "description": "Nest JS with Node and TypeScript to build REST APIs Backend with TypeORM, PostgreSQL, MongoDB, testing, AWS deployment.",
+      "category": "Development",
+      "subcategories": ["Web Development", "NestJS"],
+      "url": "https://www.udemy.com/course/nestjs-masterclass-complete-course/"
+    },
+    {
+      "title": "TypeScript Masterclass 2025 Edition - React + NodeJS Project",
+      "description": "TypeScript V5 Updated Course - Full Stack Development, TypeScript with ReactJS, ShadcnUI, Node.js, Express and MongoDB.",
+      "category": "Development",
+      "subcategories": ["Programming Languages", "Typescript"],
+      "url": "https://www.udemy.com/course/typescript-course/"
+    },
+    {
+      "title": "React - The Complete Guide 2025 (incl. Next.js, Redux)",
+      "description": "Dive in and learn React.js from scratch! Learn React, Hooks, Redux, React Router, Next.js, Best Practices and way more!",
+      "category": "Development",
+      "subcategories": ["Programming Languages", "React JS"],
+      "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
+    },
+    {
+        "title": "SOLID Principles of Object Oriented Design and Architecture",
+        "description": "Design clean, extensible and maintainable systems using SOLID principles",
+        "category": "Development",
+        "subcategories": ["Software Engineering", "Architecture"],
+        "url": "https://www.udemy.com/course/solid-principles-object-oriented-design-architecture/"
+    },
+    {
+      "title": "(40+ Saat) Python | Sıfırdan İleri Seviye Programlama",
+      "description": "(40+ Saat) - Python ve Programlama Öğrenin. Django , Web Geliştirme , Veri Analizi (Pandas , Numpy), Selenium",
+      "category": "Development",
+      "subcategories": ["Programming Languages", "Python"],
+      "url": "https://www.udemy.com/course/sifirdan-ileri-seviyeye-python/"
+  },
+    {
+        "title": "MERN Stack Front To Back: Full Stack React, Redux & Node.js",
+        "description": "Build and deploy a social network with Node.js, Express, React, Redux & MongoDB. Fully updated April 2019",
+        "category": "Development",
+        "subcategories": ["Web Development", "MERN Stack"],
+        "url": "https://www.udemy.com/course/mern-stack-front-to-back/"
+      },
+      {
+        "title": "Software Architecture: REST API Design - The Complete Guide",
+        "description": "Become a better Software Architect by designing professional, easy to use and attractive REST API",
+        "category": "Development",
+        "subcategories": ["Web Development", "REST API"],
+        "url": "https://www.udemy.com/course/rest-api-design-the-complete-guide/"
+      },
+      {
+        "title": "Spring + Hibernate + JSP + Maven ile Proje Geliştirme",
+        "description": "Java EE ile Spring, Hibernate, Maven ve JSP teknolojilerini öğrenin. Bu teknolojilerle kendi uygulamalarınızı geliştirin",
+        "category": "Development",
+        "subcategories": ["Web Development", "Spring Framework"],
+        "url": "https://www.udemy.com/course/spring-hibernate-jsp-maven-ile-proje-gelistirme/"
+      },
+    {
+        "title": "Master NestJS Ultimate Masterclass 2025",
+        "description": "Build Enterprise-Grade APIs: Complete NestJS Development with TypeScript, PostgreSQL and Testing [2025]",
+        "category": "Development",
+        "subcategories": ["Web Development", "NestJS"],
+        "url": "https://www.udemy.com/course/master-nestjs-the-javascript-nodejs-framework/"
+      },
+  
+    {
+        "title": "The Complete React Developer Course (w/ Hooks and Redux)",
+        "description": "Learn how to build and launch React web applications using React, Redux, Webpack, React-Router, and more!",
+        "category": "Development",
+        "subcategories": ["Web Development", "React JS"],
+        "url": "https://www.udemy.com/course/react-2nd-edition/"
+      },
+      {
+        "title": "React Node MERN Stack from Scratch building Social Network",
+        "description": "Master MERN Stack from Scratch while building awesome Social Network. Covers entire Front/Backend Database & Deployment.",
+        "category": "Development",
+        "subcategories": ["Web Development", "MERN Stack"],
+        "url": "https://www.udemy.com/course/node-react/"
+      },
+    {
+      "title": "(42 Saat) Sıfırdan Komple Java Geliştirici Kursu",
+      "description": "Android , Web Geliştirme ve daha bir çok alanda kullanılan Java Programlama Dilini öğrenmenin tadını çıkarın.",
+      "category": "Development",
+      "subcategories": ["Programming Languages", "Java"],
+      "url": "https://www.udemy.com/course/sifirdan-ileri-seviyeye-komple-java-gelistirici-kursu/"
+    },
+    {
+      "title": "AWS Infrastructure as Code With Terraform [2024 Updates]",
+      "description": "Terraform, a popular infrastructure automation tool for DevOps. Terraform with AWS, Packer, Docker, ECS, EKS, Jenkins",
+      "category": "IT & Software",
+      "subcategories": ["DevOps","Other IT & Software"],
+      "url": "https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform/"
+    },
+    {
+      "title": "Introduction to Cloud Computing on AWS for Beginners [2025]",
+      "description": "Learn Cloud Computing Concepts and AWS Basics | Master AWS Fundamentals and Hands-on Skills on Amazon Web Services (AWS)",
+      "category": "IT & Software",
+      "subcategories": ["Other IT & Software", "Cloud Computing"],
+      "url": "https://www.udemy.com/course/introduction-to-cloud-computing-on-amazon-aws-for-beginners/"
+    },
+    {
+      "title": "Azure AI Agent Service (AI Foundry, Semantic Kernel SDK)",
+      "description": "Work with Azure AI Foundry, Azure OpenAI, RAG, Build multi-agentic systems with Semantic Kernel SDK, Azure AI Agents",
+      "category": "IT & Software",
+      "subcategories": ["Other IT & Software", "AI Agents"],
+      "url": "https://www.udemy.com/course/azure-ai-agent-service-ai-foundry-semantic-kernel-sdk/"
+    },
+    {
+      "title": "AWS Infrastructure as Code With Terraform",
+      "description": "Terraform, a popular infrastructure automation tool for DevOps. Terraform with AWS, Packer, Docker, ECS, EKS, Jenkins.",
+      "category": "IT & Software",
+      "subcategories": ["DevOps", "Other IT & Software"],
+      "url": "https://www.udemy.com/course/aws-infrastructure-as-code-with-terraform/"
+    },
+    {
+      "title": "The Complete Guide To Custom GPTs and Actions",
+      "description": "Learn to Build Your Own GPTS, Connect to APIs, and Write OpenAPI Specification Files. Create Your Own ChatGPT.",
+      "category": "Office Productivity",
+      "subcategories": ["Other Office Productivity", "Custom GPTs / GPT Builder"],
+      "url": "https://www.udemy.com/course/learn-custom-gpts/"
+    },
+    {
+      "title": "Learn Java Unit Testing with Junit & Mockito in 30 Steps",
+      "description": "Learn Mockito and JUnit - the most popular Java unit testing and mocking frameworks - with 25 Examples",
+      "category": "IT & Software",
+      "subcategories": ["Other IT & Software", "Mockito"],
+      "url": "https://www.udemy.com/course/mockito-tutorial-with-junit-examples/"
+    },
+    {
+      "title": "The Bubble Beginners Bootcamp Course",
+      "description": "Learn from Gregory John, a Yale University nocode instructor, Bubble bootcamp trainer and startup entrepreneur.",
+      "category": "Development",
+      "subcategories": ["No-Code Development", "Web Development"],
+      "url": "https://www.udemy.com/course/the-bubble-beginners-bootcamp-course/"
+    },
+    {
+      "title": "Complete Bubble Developer Course: Build Apps Without Coding",
+      "description": "Learn how to build fully functional web and mobile applications without code - go from beginner to advanced.",
+      "category": "Development",
+      "subcategories": ["No-Code Development", "Bubble Visual Programming"],
+      "url": "https://www.udemy.com/course/build-fully-functional-apps-without-coding-using-bubble/"
+    },
+    {
+      "title": "Sıfırdan Bulut Bilişim AWS İle Terraform Öğren - 2025",
+      "description": "Sıfırdan başlayarak hem bulut bilişim temelleri (AWS) hem de terraform (IaC) öğrenin! - Devops - Amazon AWS Öğren",
+      "category": "IT & Software",
+      "subcategories": ["Other IT & Software", "Terraform"],
+      "url": "https://www.udemy.com/course/sfrdan-terraform-ile-bulut-bilisim-aws-ogren-2024/"
+    },
+    {
+      "title": "Bulut Bilişim Temelleri ve AWS Çözüm Mimarlığına Giriş",
+      "description": "AWS Solutions Architect Associate Sınavı Hazırlık Eğitimi",
+      "category": "IT & Software",
+      "subcategories": ["IT Certifications", "AWS Certified Solutions Architect - Associate"],
+      "url": "https://www.udemy.com/course/bulut-bilisim-temelleri-ve-aws-cozum-mimarligina-giris/"
+    },
+    {
+      "title": "A'dan Z'ye Docker",
+      "description": "Uygulama geliştirme, test ve dağıtım süreçlerinizde Docker teknolojisini kullanmak için bilmeniz gerekenleri öğrenin.",
+      "category": "IT & Software",
+      "subcategories": ["Other IT & Software", "Docker"],
+      "url": "https://www.udemy.com/course/adan-zye-docker/"
+    },
+    {
+        "title": "Struts 2 Framework for Beginners",
+        "description": "Learn how to build Java MVC applications using Struts 2 Framework.",
+        "category": "Development",
+        "subcategories": ["Web Development", "Apache Struts"],
+        "url": "https://www.udemy.com/course/struts-2-framework-for-beginners/"
+      }
+  ]
+  
+  

@@ -44,8 +44,8 @@ export default function ContactPage() {
         </div>
         <div className="w-full flex justify-center mt-8">
           <button className="contact-download-btn">
-            <Download size={20} />
-            Download CV
+            <Download size={19} />
+            Download My CV
           </button>
         </div>
       </div>

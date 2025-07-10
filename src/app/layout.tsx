@@ -11,6 +11,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Muratcan Portfolio",
   description: "A clone of Muratcan's personal portfolio website",
+  icons: {
+    icon: '/my.jpg',
+  },
 };
 
 export default function RootLayout({

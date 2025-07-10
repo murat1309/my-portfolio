@@ -43,10 +43,10 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="w-full flex justify-center mt-8">
-          <button className="contact-download-btn">
+          <a href="/muratcan-gokyokus-CV.pdf" download className="contact-download-btn">
             <Download size={19} />
-            Download My CV
-          </button>
+            Download CV
+          </a>
         </div>
       </div>
     </MainLayout>

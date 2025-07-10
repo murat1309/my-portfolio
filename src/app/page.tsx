@@ -614,6 +614,17 @@ export default function HomePage() {
               <span className="skill-name">Mockito</span>
             </div>
 
+            {/* SonarQube */}
+            <div className="skill-card">
+              <Image
+                src="https://images.seeklogo.com/logo-png/43/1/sonar-source-logo-png_seeklogo-438217.png"
+                alt="SonarQube"
+                width={64}
+                height={64}
+              />
+              <span className="skill-name">SonarQube</span>
+            </div>
+
             {/* JSON */}
             <div className="skill-card">
               <Image
@@ -623,6 +634,17 @@ export default function HomePage() {
                 height={64}
               />
               <span className="skill-name">JSON</span>
+            </div>
+
+            {/* XML */}
+            <div className="skill-card">
+              <Image
+                src="https://www.svgrepo.com/show/31053/xml.svg"
+                alt="XML"
+                width={64}
+                height={64}
+              />
+              <span className="skill-name">XML</span>
             </div>
 
 

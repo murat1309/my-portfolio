@@ -130,7 +130,7 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
           <aside className={cn("sidebar-card", sidebarAnimate && "sidebar-card-animate")}>
             <div className="avatar-wrapper">
               <Image
-                src="https://web-assets.same.dev/3371945742/2479897342.png"
+                src="/my.jpg"
                 alt="Muratcan Gökyokuş"
                 width={116}
                 height={116}

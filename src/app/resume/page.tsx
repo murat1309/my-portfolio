@@ -109,6 +109,7 @@ export default function ResumePage() {
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Designed and rolled out a unit testing framework: researched best practices, integrated SonarQube/SonarLint for code coverage and quality metrics aligned with SDLC standards.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Configured and supported AI coding assistants (GitHub Copilot, Claude, GPT) in IntelliJ IDEA and VSCode, accelerating issue diagnosis and development efficiency.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Coordinated with cross-functional core teams to ensure smooth integration and delivery of features across the platform.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Applied SOLID principles and clean code practices across all projects, ensuring maintainable, testable, and scalable backend systems aligned with enterprise-grade architecture standards.</li>
                 </ul>
               </div>
             </div>
@@ -125,7 +126,6 @@ export default function ResumePage() {
                 </div>
                 <ul style={{ marginLeft: 0, paddingLeft: 0, listStyle: 'none' }}>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Architected and implemented a microservices-based backend using Java 8, Spring MVC, Spring Boot, Spring Cloud, Hibernate, MySQL, and Oracle to deliver modular, high-performance services.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Designed and rolled out a unit testing framework—writing tests with Mockito and PowerMockito; researched best practices and integrated SonarQube/SonarLint for code coverage and quality metrics aligned with SDLC standards.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Built responsive Single-Page Application components with React, creating dynamic, user-friendly interfaces across desktop and mobile browsers.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Specialized in React Native to implement mobile-first features, integrating native modules and optimizing app performance on iOS and Android.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Leveraged Spring Cloud for service discovery, centralized configuration, and fault tolerance within the microservices ecosystem.</li>
@@ -149,6 +149,7 @@ export default function ResumePage() {
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Supported the implementation of visually appealing UI designs that aligned with client requirements and design principles.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Collaborated with cross-functional teams, including back-end developers and designers, to deliver efficient, high-quality, and scalable solutions.</li>
                   <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Gained hands-on experience in debugging, troubleshooting, and refining app features to improve user experience.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Built SOAP APIs while learning API standards and clean code architecture for maintainable backend development.</li>
                 </ul>
               </div>
             </div>
@@ -188,10 +189,9 @@ export default function ResumePage() {
         
         {/* Download CV Button */}
         <div className="w-full flex justify-center mt-8">
-          <button className="resume-download-btn">
-            <Download size={20} />
+          <a href="/muratcan-gokyokus-CV.pdf" download className="resume-download-btn">
             Download CV
-          </button>
+          </a>
         </div>
       </div>
     </MainLayout>

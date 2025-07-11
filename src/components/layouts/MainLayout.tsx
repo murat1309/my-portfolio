@@ -83,7 +83,7 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
                 );
               })}
 
-              {/* Language Switch */}
+              {/* Language Switch for Desktop */}
               <button
                 onClick={toggleLanguage}
                 className="ml-4 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-2"
@@ -140,6 +140,23 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
                       {link.label}
                     </Link>
                   ))}
+                  {/* Language Switch for Mobile */}
+                  <button
+                    onClick={toggleLanguage}
+                    className="w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors mt-2 bg-white/5 hover:bg-white/10 flex items-center gap-2"
+                  >
+                    <motion.div
+                      className="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold"
+                      initial={{ backgroundColor: language === "en" ? "#800080" : "#333" }}
+                      animate={{ backgroundColor: language === "en" ? "#800080" : "#333" }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {language === "en" ? "EN" : "TR"}
+                    </motion.div>
+                    <span className="text-sm text-gray-300">
+                      {language === "en" ? "English" : "Türkçe"}
+                    </span>
+                  </button>
                 </nav>
               </motion.div>
             )}

@@ -8,6 +8,7 @@ import { Mail, Smartphone, MapPin, Linkedin, Github, BookOpen, Twitter, Menu, X,
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/animations/PageTransition";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -17,17 +18,22 @@ interface MainLayoutProps {
 export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, getNavbarTranslation } = useLanguage();
 
   const navLinks = [
-    { href: "/", label: "About" },
-    { href: "/resume", label: "Resume" },
-    { href: "/courses", label: "Courses / Certifications" },
+    { href: "/", label: getNavbarTranslation("about") },
+    { href: "/resume", label: getNavbarTranslation("resume") },
+    { href: "/courses", label: getNavbarTranslation("courses") },
     //{ href: "/portfolio", label: "Portfolio" },
-    { href: "/contact", label: "Contact" },
+    { href: "/contact", label: getNavbarTranslation("contact") },
   ];
 
   const currentPageLabel = navLinks.find(link => link.href === pathname)?.label || "Page";
-  const displayTitle = pathname === "/" ? "About Me" : currentPageLabel;
+  const displayTitle = pathname === "/" ? getNavbarTranslation("about") : currentPageLabel;
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "tr" : "en");
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#18191a]">
@@ -42,7 +48,7 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-white font-semibold">Muratcan Gökyokuş</h1>
-                <p className="text-sm text-gray-400">Backend Developer</p>
+                <p className="text-sm text-gray-400">{getNavbarTranslation("backendDeveloper")}</p>
               </div>
             </div>
 
@@ -76,6 +82,24 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
                   </Link>
                 );
               })}
+
+              {/* Language Switch */}
+              <button
+                onClick={toggleLanguage}
+                className="ml-4 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-2"
+              >
+                <motion.div
+                  className="w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold"
+                  initial={{ backgroundColor: language === "en" ? "#800080" : "#333" }}
+                  animate={{ backgroundColor: language === "en" ? "#800080" : "#333" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {language === "en" ? "EN" : "TR"}
+                </motion.div>
+                <span className="text-sm text-gray-300">
+                  {language === "en" ? "English" : "Türkçe"}
+                </span>
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -141,7 +165,7 @@ export default function MainLayout({ children, sidebarAnimate }: MainLayoutProps
             </div>
             <div className="sidebar-name">Muratcan Gökyokuş</div>
             <div className="sidebar-badge">
-              <span className="badge-text-default">Backend Developer</span>
+              <span className="badge-text-default">{getNavbarTranslation("backendDeveloper")}</span>
               <span className="badge-text-hover">✨ Backend Pro ✨</span>
             </div>
             <div className="sidebar-divider"></div>

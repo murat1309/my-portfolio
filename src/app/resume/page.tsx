@@ -3,10 +3,13 @@
 import { useEffect, useRef } from "react";
 import MainLayout from "@/components/layouts/MainLayout";
 import { Download, BookOpen, Briefcase } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function ResumePage() {
   // Ref for main container to add animation class
   const mainRef = useRef<HTMLDivElement>(null);
+  const { getTranslation, language } = useLanguage();
   
   // Add animation class after component mounts
   useEffect(() => {
@@ -46,19 +49,33 @@ export default function ResumePage() {
     <MainLayout>
       <div className="main-card" ref={mainRef}>
         {/* Resume Title */}
-        <h1 className="section-title">
-          Resume
-        </h1>
+        <motion.h1 
+          key={`resume-title-${language}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="section-title"
+        >
+          {getTranslation("resumePage", "resumeTitle")}
+        </motion.h1>
 
         {/* Experience Section */}
-        <div style={{ marginBottom: '2.8rem', position: 'relative' }}>
+        <motion.div 
+          key={`experience-section-${language}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          style={{ marginBottom: '2.8rem', position: 'relative' }}
+        >
           {/* Timeline line */}
           <div className="resume-timeline-line2"></div>
           
           {/* Experience Title Row */}
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', position: 'relative' }}>
             <span className="resume-section-icon"><Briefcase size={24} /></span>
-            <h2 className="resume-section-title">Experience</h2>
+            <h2 className="resume-section-title">{getTranslation("resumePage", "experienceTitle")}</h2>
           </div>
 
           <div className="resume-timeline">
@@ -68,23 +85,23 @@ export default function ResumePage() {
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot"></div>
               <div className="resume-timeline-content">
-                <div>Senior Backend Developer & DevOps Engineer</div>
-                <div>Kauna.ai</div>
+                <div>{getTranslation("resumePage", "seniorBackendDevOpsEngineerTitle")}</div>
+                <div>{getTranslation("resumePage", "kaunaAIName")}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span className="resume-badge">Sep, 2024 – Jun, 2025</span>
-                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>Remote</span>
+                  <span className="resume-badge">{getTranslation("resumePage", "kaunaAIDates")}</span>
+                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>{getTranslation("resumePage", "kaunaAILocation")}</span>
                 </div>
                 <ul style={{ marginLeft: 0, paddingLeft: 0, listStyle: 'none' }}>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Architected and built a modular, testable, high-performance Node.js API from scratch using NestJS and TypeScript.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Implemented full end-to-end user authentication with AWS Cognito, including native sign-up, email confirmation, sign-in, password reset, and resend-confirmation flows.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Integrated OAuth2+PKCE social logins (Google, Facebook) via Cognito's /authorize and /token endpoints, leveraging Redis (ElastiCache) for secure session storage.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Mastered the aws-sdk and aws-cognito-sdk libraries to handle all authentication flows server-side; added refresh-token blacklisting and single-device session management for enhanced security.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Modeled and managed user–product relationships in MongoDB within transactions; optimized performance with indexes and sharding strategies.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Employed Terraform for Infrastructure as Code, provisioning AWS resources (EKS, ElastiCache, S3, CloudFront, Lambda, API Gateway, IAM, ECS/ECR, SQS, SNS, CodePipeline, etc.) in modular dev/prod environments.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Developed CI/CD pipelines using GitHub Actions and AWS CodePipeline/CodeBuild, automating Docker builds and deployments to AWS EKS/ECS with seamless rollback capabilities.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Enforced security and reliability best practices: JWT authorization, CSRF protection, CORS configuration, rate-limiting, input validation, centralized exception handling, and comprehensive logging/monitoring.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Integrated intelligent styling suggestions via the OpenAI API; added affiliate functionality with Amazon PAAPI and virtual try-on services, applying performance optimizations throughout.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Established a scalable, best-practice microservices architecture that minimizes redundancy and enables rapid feature expansion.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc1")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc2")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc3")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc4")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc5")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc6")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc7")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc8")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc9")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "kaunaAIDesc10")}</li>
                 </ul>
               </div>
             </div>
@@ -94,22 +111,22 @@ export default function ResumePage() {
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot"></div>
               <div className="resume-timeline-content">
-                <div>Backend Developer</div>
-                <div>OBSS Technology</div>
+                <div>{getTranslation("resumePage", "backendDeveloperObssTitle")}</div>
+                <div>{getTranslation("resumePage", "obssTechnologyName")}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span className="resume-badge">Nov, 2019 – Present</span>
-                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>Istanbul, Turkey</span>
+                  <span className="resume-badge">{getTranslation("resumePage", "obssTechnologyDates")}</span>
+                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>{getTranslation("resumePage", "obssTechnologyLocation")}</span>
                 </div>
                 <ul style={{ marginLeft: 0, paddingLeft: 0, listStyle: 'none' }}>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Worked in applications developed with Java, Node.js, React, Golang.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Spent 1 year on the Dragon AI-powered service project, mastering and applying Java, Python, Go, React, JSP, and Node.js to build an in-house solution from scratch.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Served 4 years as a senior developer on TEB Retail Internet Banking, refining and delivering sprint tasks on schedule using Java, Struts, JSP, and JavaScript.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Managed version control across ClearCase, ClearQuest, Git, and TFS; led the migration to Git and implemented Azure-based code review workflows and CI/CD pipelines for production deployments.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Wrote and optimized PL/SQL routines in Oracle to ensure reliable, high-performance database APIs.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Designed and rolled out a unit testing framework: researched best practices, integrated SonarQube/SonarLint for code coverage and quality metrics aligned with SDLC standards.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Configured and supported AI coding assistants (GitHub Copilot, Claude, GPT) in IntelliJ IDEA and VSCode, accelerating issue diagnosis and development efficiency.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Coordinated with cross-functional core teams to ensure smooth integration and delivery of features across the platform.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Applied SOLID principles and clean code practices across all projects, ensuring maintainable, testable, and scalable backend systems aligned with enterprise-grade architecture standards.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc1")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc2")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc3")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc4")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc5")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc6")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc7")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc8")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "obssTechnologyDesc9")}</li>
                 </ul>
               </div>
             </div>
@@ -118,18 +135,18 @@ export default function ResumePage() {
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot"></div>
               <div className="resume-timeline-content">
-                <div>Fullstack Developer</div>
-                <div>Vadi Kurumsal Bilgi Sistemleri</div>
+                <div>{getTranslation("resumePage", "fullstackDeveloperVadiTitle")}</div>
+                <div>{getTranslation("resumePage", "vadiName")}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span className="resume-badge">Nov, 2018 – Nov, 2019</span>
-                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>Istanbul, Turkey</span>
+                  <span className="resume-badge">{getTranslation("resumePage", "vadiDates")}</span>
+                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>{getTranslation("resumePage", "vadiLocation")}</span>
                 </div>
                 <ul style={{ marginLeft: 0, paddingLeft: 0, listStyle: 'none' }}>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Architected and implemented a microservices-based backend using Java 8, Spring MVC, Spring Boot, Spring Cloud, Hibernate, MySQL, and Oracle to deliver modular, high-performance services.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Built responsive Single-Page Application components with React, creating dynamic, user-friendly interfaces across desktop and mobile browsers.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Specialized in React Native to implement mobile-first features, integrating native modules and optimizing app performance on iOS and Android.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Leveraged Spring Cloud for service discovery, centralized configuration, and fault tolerance within the microservices ecosystem.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Invested in continuous learning—completed courses on modern Java and front-end frameworks—to adopt best practices and emerging technologies.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "vadiDesc1")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "vadiDesc2")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "vadiDesc3")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "vadiDesc4")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "vadiDesc5")}</li>
                 </ul>
               </div>
             </div>
@@ -138,59 +155,66 @@ export default function ResumePage() {
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot"></div>
               <div className="resume-timeline-content">
-                <div>Backend Developer Intern</div>
-                <div>Etiya</div>
+                <div>{getTranslation("resumePage", "backendDeveloperInternTitle")}</div>
+                <div>{getTranslation("resumePage", "etiyaName")}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span className="resume-badge">Jun, 2017 – Aug, 2017</span>
-                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>Istanbul, Turkey</span>
+                  <span className="resume-badge">{getTranslation("resumePage", "etiyaDates")}</span>
+                  <span style={{ color: '#bdbdbd', fontSize: '0.92rem', fontStyle: 'italic' }}>{getTranslation("resumePage", "etiyaLocation")}</span>
                 </div>
                 <ul style={{ marginLeft: 0, paddingLeft: 0, listStyle: 'none' }}>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Assisted in developing and maintaining Java applications, ensuring seamless functionality and user-friendly interfaces.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Supported the implementation of visually appealing UI designs that aligned with client requirements and design principles.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Collaborated with cross-functional teams, including back-end developers and designers, to deliver efficient, high-quality, and scalable solutions.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Gained hands-on experience in debugging, troubleshooting, and refining app features to improve user experience.</li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>Built SOAP APIs while learning API standards and clean code architecture for maintainable backend development.</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "etiyaDesc1")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "etiyaDesc2")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "etiyaDesc3")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "etiyaDesc4")}</li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 6 }}><span className="resume-bullet"></span>{getTranslation("resumePage", "etiyaDesc5")}</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
   {/* Education Section */}
-  <div style={{ marginBottom: '2.8rem', position: 'relative' }}>
+  <motion.div 
+    key={`education-section-${language}`}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.3, delay: 0.2 }}
+    style={{ marginBottom: '2.8rem', position: 'relative' }}
+  >
           {/* Timeline line */}
           <div className="resume-timeline-line1"></div>
           
           {/* Education Title Row */}
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', position: 'relative' }}>
             <span className="resume-section-icon"><BookOpen size={24} /></span>
-            <h2 className="resume-section-title">Education</h2>
+            <h2 className="resume-section-title">{getTranslation("resumePage", "educationTitle")}</h2>
           </div>
 
           <div className="resume-timeline">
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot"></div>
               <div className="resume-timeline-content">
-                <div>Duzce University</div>
-                <div>Bachelor of Computer Engineering</div>
-                <span className="resume-badge">2014 – 2018</span>
+                <div>{getTranslation("resumePage", "duzceUniversityName")}</div>
+                <div>{getTranslation("resumePage", "duzceUniversityDegree")}</div>
+                <span className="resume-badge">{getTranslation("resumePage", "duzceUniversityDates")}</span>
               </div>
             </div>
             <div className="resume-timeline-item">
               <div className="resume-timeline-dot secondary"></div>
               <div className="resume-timeline-content">
-                <div>Nesrin Ucaklioglu Anatolian High School</div>
-                <div>High School</div>
-                <span className="resume-badge">2010 – 2014</span>
+                <div>{getTranslation("resumePage", "nesrinUcakliogluName")}</div>
+                <div>{getTranslation("resumePage", "nesrinUcakliogluDegree")}</div>
+                <span className="resume-badge">{getTranslation("resumePage", "nesrinUcakliogluDates")}</span>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         
         {/* Download CV Button */}
         <div className="w-full flex justify-center mt-8">
           <a href="/muratcan-gokyokus-CV.pdf" download className="resume-download-btn">
-            Download CV
+            {getTranslation("resumePage", "downloadCVButton")}
           </a>
         </div>
       </div>

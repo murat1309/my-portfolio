@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import MainLayout from "@/components/layouts/MainLayout";
 import { ExternalLink, Award, BookOpen, TrendingUp, Code, Cloud, Briefcase, Monitor, Globe, FileText } from 'lucide-react';
 import udemyCourses from "../../udemys.json";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 interface Course {
   title: string;
@@ -15,6 +17,7 @@ interface Course {
 
 export default function ExperiencePage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { getTranslation, language } = useLanguage();
 
   useEffect(() => {
     // Trigger animations after component mounts
@@ -94,35 +97,49 @@ export default function ExperiencePage() {
     <MainLayout>
       <div className={`experience-page-container ${isLoaded ? 'animate-in' : ''}`}>
         {/* Page Header */}
-        <div className="experience-header" style={{ '--section-index': 0 } as React.CSSProperties}>
-          <h2 className="section-title">Learning Journey</h2>
+        <motion.div 
+          key={`header-${language}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="experience-header" style={{ '--section-index': 0 } as React.CSSProperties}
+        >
+          <h2 className="section-title">{getTranslation("coursesPage", "learningJourneyTitle")}</h2>
           <div className="experience-stats">
             <div className="stat-card" style={{ '--stat-index': 0 } as React.CSSProperties}>
               <Award className="stat-icon" />
               <div className="stat-content">
                 <span className="stat-number">30+</span>
-                <span className="stat-label">Courses Completed</span>
+                <span className="stat-label">{getTranslation("coursesPage", "coursesCompleted")}</span>
               </div>
             </div>
             <div className="stat-card" style={{ '--stat-index': 1 } as React.CSSProperties}>
               <TrendingUp className="stat-icon" />
               <div className="stat-content">
                 <span className="stat-number">{Object.keys(groupedCourses).length + 2} </span>
-                <span className="stat-label">Categories Mastered</span>
+                <span className="stat-label">{getTranslation("coursesPage", "categoriesMastered")}</span>
               </div>
             </div>
             <div className="stat-card" style={{ '--stat-index': 2 } as React.CSSProperties}>
               <BookOpen className="stat-icon" />
               <div className="stat-content">
                 <span className="stat-number">500+</span>
-                <span className="stat-label">Hours of Learning</span>
+                <span className="stat-label">{getTranslation("coursesPage", "hoursOfLearning")}</span>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Course Categories */}
-        <div className="experience-content">
+        <motion.div 
+          key={`content-${language}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className="experience-content"
+        >
           {Object.entries(groupedCourses).map(([category, courses], categoryIndex) => (
             <div 
               key={category} 
@@ -134,7 +151,7 @@ export default function ExperiencePage() {
                   {getCategoryIcon(category)}
                 </div>
                 <h3 className="category-title">{category}</h3>
-                <span className="course-count">{courses.length} courses</span>
+                <span className="course-count">{courses.length} {getTranslation("coursesPage", "coursesLabel")}</span>
               </div>
 
               <div className="courses-grid">
@@ -166,10 +183,10 @@ export default function ExperiencePage() {
                     </div>
 
                     <div className="course-card-footer">
-                      <span className="course-platform">Udemy</span>
+                      <span className="course-platform">{getTranslation("coursesPage", "udemyPlatform")}</span>
                       <div className="course-status">
                         <Award className="w-4 h-4" />
-                        <span>Certified</span>
+                        <span>{getTranslation("coursesPage", "certifiedStatus")}</span>
                       </div>
                     </div>
                   </div>
@@ -187,8 +204,8 @@ export default function ExperiencePage() {
               <div className="category-icon">
                 <Monitor className="w-6 h-6" />
               </div>
-              <h3 className="category-title">Learning Platforms</h3>
-              <span className="course-count">{learningPlatforms.length} platforms</span>
+              <h3 className="category-title">{getTranslation("coursesPage", "learningPlatformsTitle")}</h3>
+              <span className="course-count">{learningPlatforms.length} {getTranslation("coursesPage", "platformsLabel")}</span>
             </div>
 
             <div className="courses-grid">
@@ -200,11 +217,11 @@ export default function ExperiencePage() {
                   onClick={() => window.open(platform.url, '_blank')}
                 >
                   <div className="course-card-header">
-                    <h4 className="course-title">{platform.name}</h4>
+                    <h4 className="course-title">{platform.name === "FreeCodeCamp" ? getTranslation("coursesPage", "freeCodeCampName") : platform.name === "JavaScript.info" ? getTranslation("coursesPage", "javaScriptInfoName") : getTranslation("coursesPage", "mdnWebDocsName")}</h4>
                     <ExternalLink className="course-external-icon" />
                   </div>
                   
-                  <p className="course-description">{platform.description}</p>
+                  <p className="course-description">{platform.name === "FreeCodeCamp" ? getTranslation("coursesPage", "freeCodeCampDesc") : platform.name === "JavaScript.info" ? getTranslation("coursesPage", "javaScriptInfoDesc") : getTranslation("coursesPage", "mdnWebDocsDesc")}</p>
                   
                   <div className="course-tags">
                     {platform.technologies.slice(0, 3).map((tech, techIndex) => (
@@ -220,17 +237,17 @@ export default function ExperiencePage() {
                   </div>
 
                   <div className="course-card-footer">
-                    <span className="course-platform">Web Platform</span>
+                    <span className="course-platform">{getTranslation("coursesPage", "webPlatform")}</span>
                     <div className="course-status">
                       <Monitor className="w-4 h-4" />
-                      <span>Frontend Focus</span>
+                      <span>{getTranslation("coursesPage", "frontendFocusStatus")}</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </MainLayout>
   );

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import MainLayout from "@/components/layouts/MainLayout";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   // Refs for scrolling functionality
@@ -18,6 +20,7 @@ export default function HomePage() {
 
   // Animation ref for main container
   const mainRef = useRef<HTMLDivElement>(null);
+  const { getTranslation, language } = useLanguage();
 
   // Add animation class after component mounts
   useEffect(() => {
@@ -181,24 +184,38 @@ export default function HomePage() {
     <MainLayout>
       {/* About Me Section */}
       <div className="main-card" ref={mainRef}>
-      <section className="mb-8 homepage-section">
-        <h2 className="section-title">About Me</h2>
+      <motion.section 
+        key={language}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
+        className="mb-8 homepage-section"
+      >
+        <h2 className="section-title">{getTranslation("homepage", "aboutMeTitle")}</h2>
         <div className="main-content mb-8">
           <p>
-            A skilled and dedicated Backend Developer with solid experience in Java, TypeScript, JavaScript and Node.js. I focus on creating efficient and scalable backend systems, with an emphasis on seamless API integrations, performance optimization, and high-quality application delivery. I have a strong foundation in building reliable solutions that meet diverse project requirements.
+            {getTranslation("homepage", "aboutMeParagraph1")}
           </p>
           <p>
-            Additionally, I have hands-on experience with Docker, AWS Cloud, and Terraform, which I use to deploy and manage applications in cloud environments. These tools help me automate infrastructure tasks and manage cloud resources effectively, contributing to the stability and scalability of the systems I develop.
+            {getTranslation("homepage", "aboutMeParagraph2")}
           </p>
           <p>
-            I am always eager to learn and adapt to new technologies and industry practices, while placing a high value on teamwork and effective communication. I believe that strong collaboration plays a key role in achieving successful outcomes, and I strive to work closely with my colleagues to deliver practical and reliable backend solutions.
+            {getTranslation("homepage", "aboutMeParagraph3")}
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section className="skills-section homepage-section">
-        <h3 className="section-title">Skills</h3>
+      <motion.section 
+        key={`skills-${language}`}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="skills-section homepage-section"
+      >
+        <h3 className="section-title">{getTranslation("homepage", "skillsTitle")}</h3>
         <div className="skills-container">
           {/* Skills List with horizontal scrolling */}
 
@@ -683,11 +700,18 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What I'm Doing Section */}
-      <section className="mb-8 homepage-section">
-        <h3 className="section-title">What I'm Doing</h3>
+      <motion.section 
+        key={`doing-${language}`}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        className="mb-8 homepage-section"
+      >
+        <h3 className="section-title">{getTranslation("homepage", "whatImDoingTitle")}</h3>
         <div className="doing-grid">
           {/* Backend Development */}
           <div className="doing-card">
@@ -699,9 +723,9 @@ export default function HomePage() {
               className="doing-icon"
             />
             <div>
-              <div className="doing-title">Backend Development</div>
+              <div className="doing-title">{getTranslation("homepage", "backendDevelopmentTitle")}</div>
               <div className="doing-desc">
-                Building robust, scalable, and secure backend systems using Java, Node.js, and modern frameworks. Focused on API design, microservices, and high-performance architectures for enterprise and cloud-native applications.
+                {getTranslation("homepage", "backendDevelopmentDesc")}
               </div>
             </div>
           </div>
@@ -715,9 +739,9 @@ export default function HomePage() {
               className="doing-icon"
             />
             <div>
-              <div className="doing-title">Web Development</div>
+              <div className="doing-title">{getTranslation("homepage", "webDevelopmentTitle")}</div>
               <div className="doing-desc">
-                Developing modern, responsive web applications with React, TypeScript, and best practices. Delivering seamless user experiences and integrating complex backend services.
+                {getTranslation("homepage", "webDevelopmentDesc")}
               </div>
             </div>
           </div>
@@ -731,9 +755,9 @@ export default function HomePage() {
               className="doing-icon"
             />
             <div>
-              <div className="doing-title">DevOps & Cloud Engineering</div>
+              <div className="doing-title">{getTranslation("homepage", "devOpsCloudTitle")}</div>
               <div className="doing-desc">
-                Automating infrastructure and deployments using Docker, AWS, and Terraform. Implementing CI/CD pipelines, infrastructure as code, and cloud resource management for reliable and scalable systems.
+                {getTranslation("homepage", "devOpsCloudDesc")}
               </div>
             </div>
           </div>
@@ -747,14 +771,14 @@ export default function HomePage() {
               className="doing-icon"
             />
             <div>
-              <div className="doing-title">Database Engineering</div>
+              <div className="doing-title">{getTranslation("homepage", "databaseEngineeringTitle")}</div>
               <div className="doing-desc">
-                Designing, optimizing, and managing databases with PostgreSQL, MongoDB, Oracle, and MySQL. Ensuring data integrity, high availability, and performance for mission-critical applications.
+                {getTranslation("homepage", "databaseEngineeringDesc")}
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
     
       </div>
